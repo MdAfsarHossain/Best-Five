@@ -60,3 +60,26 @@ function playerTotalMoney(params) {
     params.parentNode.children[3].classList.add('btn-disabled')
     document.getElementById('total-calculations').classList.remove('btn-disabled');
 }
+
+
+// All players, coach and managers final money calculation
+function totalCalculations() {
+    const managerPrice = parseInt(document.getElementById('manager-price').value);
+    const coachPrice = parseInt(document.getElementById('coach-price').value);
+
+    const validation1 =  inputFieldValidation(managerPrice);
+    const validation2 = inputFieldValidation(coachPrice);
+
+    makeInputFieldEmpty('manager-price');
+    makeInputFieldEmpty('coach-price');
+
+    if(validation1 || validation2) {
+        return;
+    }
+
+    const playerPrice = parseInt(document.getElementById('player-total-expenses').innerText);
+
+    const totalExpenses = managerPrice + coachPrice + playerPrice;
+    document.getElementById('final-price').innerText = totalExpenses;
+    document.getElementById('total-calculations').classList.add('btn-disabled');
+}
