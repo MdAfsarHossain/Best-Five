@@ -19,3 +19,15 @@ function selectPlayer(params) {
     li.innerText = playerName;
     ol.appendChild(li);    
 }
+
+
+// Input field validation functionality
+function inputFieldValidation(value) {
+
+    if(isNaN(value) || value <= 0) {
+        // alert('Invalid price. Please enter a valid price.');
+        document.getElementById('calculate_modal').showModal();
+        return true;
+    }
+    return false;
+}
