@@ -37,3 +37,26 @@ function inputFieldValidation(value) {
 function makeInputFieldEmpty(inputFiledName) {
     document.getElementById(inputFiledName).value = '';
 }
+
+
+// Player Total Expenses Calculations
+function playerTotalMoney(params) {
+    const perPlayerPrice = parseInt(document.getElementById('player-price').value);
+
+    const validation =  inputFieldValidation(perPlayerPrice);
+
+    makeInputFieldEmpty('player-price');
+
+    if(validation) {
+        return;
+    }
+
+    const ol = document.getElementById('olList').children.length;
+
+    const totalMoney = perPlayerPrice * ol;
+
+    document.getElementById('player-total-expenses').innerText = totalMoney;
+
+    params.parentNode.children[3].classList.add('btn-disabled')
+    document.getElementById('total-calculations').classList.remove('btn-disabled');
+}
