@@ -31,3 +31,9 @@ function inputFieldValidation(value) {
     }
     return false;
 }
+
+
+// Make input field empty functionality
+function makeInputFieldEmpty(inputFiledName) {
+    document.getElementById(inputFiledName).value = '';
+}
